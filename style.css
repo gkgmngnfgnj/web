@@ -22,7 +22,7 @@ body, html {
   min-height: 100%;
   object-fit: cover;
   z-index: -1;
-  filter: brightness(0.4);
+  filter: brightness(0.35);
 }
 
 .overlay {
@@ -32,18 +32,20 @@ body, html {
   justify-content: center;
   height: 100%;
   text-align: center;
+  animation: fadeIn 1s ease-in forwards;
 }
 
 .title {
   font-size: 3em;
-  text-shadow: 0 0 20px white;
-  margin-bottom: 10px;
+  text-shadow: 0 0 25px #fff, 0 0 60px #999;
+  margin-bottom: 15px;
+  animation: pulse 2s infinite alternate;
 }
 
 .stats {
   margin-bottom: 30px;
-  font-size: 1.2em;
-  text-shadow: 0 0 10px white;
+  font-size: 1.3em;
+  text-shadow: 0 0 15px white;
 }
 
 .profile-card {
@@ -53,19 +55,29 @@ body, html {
   display: flex;
   align-items: center;
   gap: 15px;
-  box-shadow: 0 0 15px rgba(255,255,255,0.2);
+  box-shadow: 0 0 20px rgba(255,255,255,0.3);
+  transition: 0.4s;
+}
+
+.profile-card:hover {
+  box-shadow: 0 0 35px rgba(255,255,255,0.7);
+  transform: translateY(-5px);
 }
 
 .pfp {
-  width: 70px;
-  height: 70px;
+  width: 75px;
+  height: 75px;
   border-radius: 50%;
   border: 2px solid white;
+  box-shadow: 0 0 10px white;
 }
 
 .info h2 {
-  font-size: 1.5em;
+  font-size: 1.6em;
   margin-bottom: 5px;
+  display: flex;
+  align-items: center;
+  gap: 5px;
 }
 
 .icon {
@@ -73,31 +85,36 @@ body, html {
   vertical-align: middle;
 }
 
-.playing span {
-  color: #ccc;
+.playing {
   font-size: 0.9em;
+  color: #ccc;
+}
+
+.playing span {
+  color: #fff;
+  text-shadow: 0 0 10px white;
 }
 
 .links {
   display: flex;
-  gap: 40px;
+  gap: 50px;
   margin-top: 30px;
 }
 
 .links img {
-  width: 40px;
-  filter: drop-shadow(0 0 10px white);
+  width: 45px;
   transition: 0.3s;
+  filter: drop-shadow(0 0 10px white);
 }
 
 .links img:hover {
-  transform: scale(1.1);
-  filter: drop-shadow(0 0 20px white);
+  transform: scale(1.2);
+  filter: drop-shadow(0 0 30px white);
 }
 
 .music {
   position: absolute;
-  bottom: 20px;
+  bottom: 30px;
   display: flex;
   align-items: center;
   gap: 15px;
@@ -105,8 +122,37 @@ body, html {
 
 .music-icon {
   font-size: 1.5em;
+  animation: pulseGlow 2s infinite alternate;
 }
 
 audio {
   width: 200px;
+  accent-color: white;
+  filter: drop-shadow(0 0 10px white);
+}
+
+/* Animations */
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+.fade-in {
+  opacity: 0;
+  animation: fadeInUp 1.5s forwards;
+}
+
+@keyframes fadeInUp {
+  from { opacity: 0; transform: translateY(30px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes pulse {
+  from { text-shadow: 0 0 10px #fff; }
+  to { text-shadow: 0 0 40px #fff; }
+}
+
+@keyframes pulseGlow {
+  from { text-shadow: 0 0 10px #fff; }
+  to { text-shadow: 0 0 25px #fff; }
 }
