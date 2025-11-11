@@ -11,14 +11,14 @@
     <source src="assets/background.mp4" type="video/mp4" />
   </video>
 
-  <div class="overlay">
+  <div class="overlay" id="overlay">
     <h1 class="title fade-in">/3hel</h1>
 
     <div class="stats fade-in">
       ⚙️ $:1 💎 ★ 👻
     </div>
 
-    <div class="profile-card fade-in">
+    <div class="profile-card fade-in floating">
       <img src="assets/pfp.png" class="pfp" />
       <div class="info">
         <h2>X9Z <img src="https://cdn-icons-png.flaticon.com/512/833/833472.png" class="icon" /></h2>
@@ -34,12 +34,13 @@
     <div class="music fade-in">
       <div class="music-icon">🎵</div>
       <div class="track">XXX</div>
-      <audio id="musicPlayer" controls>
+      <audio id="musicPlayer" autoplay loop>
         <source src="assets/music.mp3" type="audio/mp3" />
       </audio>
     </div>
   </div>
 
+  <div id="cursor-glow"></div>
   <script src="script.js"></script>
 </body>
 </html>
