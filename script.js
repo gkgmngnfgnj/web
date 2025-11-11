@@ -1,18 +1,13 @@
-// Cursor glow follow effect
+// ✨ Cursor Glow
 const glow = document.getElementById("cursor-glow");
 document.addEventListener("mousemove", (e) => {
   glow.style.transform = `translate(${e.clientX - 40}px, ${e.clientY - 40}px)`;
 });
 
-// Fade-in delay sequencing
+// 🎧 Auto Music + Fade In
 document.addEventListener("DOMContentLoaded", () => {
-  const elements = document.querySelectorAll(".fade-in");
-  elements.forEach((el, i) => {
-    el.style.animationDelay = `${i * 0.3}s`;
-  });
-
-  // Try autoplay music with a fade-in
   const music = document.getElementById("musicPlayer");
+
   const fadeIn = () => {
     music.volume = 0;
     music.play().then(() => {
@@ -24,8 +19,12 @@ document.addEventListener("DOMContentLoaded", () => {
         } else clearInterval(fade);
       }, 100);
     }).catch(() => {
-      console.log("Autoplay blocked — user must click once.");
+      // If autoplay blocked, wait for first click
+      document.body.addEventListener("click", () => {
+        fadeIn();
+      }, { once: true });
     });
   };
+
   fadeIn();
 });
