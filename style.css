@@ -21,10 +21,11 @@ body, html {
   min-width: 100%;
   min-height: 100%;
   object-fit: cover;
-  z-index: -1;
-  filter: brightness(0.35);
+  z-index: -2;
+  filter: brightness(0.3);
 }
 
+/* Main overlay container */
 .overlay {
   display: flex;
   flex-direction: column;
@@ -32,36 +33,38 @@ body, html {
   justify-content: center;
   height: 100%;
   text-align: center;
-  animation: fadeIn 1s ease-in forwards;
+  position: relative;
+  z-index: 2;
 }
 
 .title {
-  font-size: 3em;
+  font-size: 3.2em;
   text-shadow: 0 0 25px #fff, 0 0 60px #999;
-  margin-bottom: 15px;
+  margin-bottom: 10px;
   animation: pulse 2s infinite alternate;
 }
 
 .stats {
   margin-bottom: 30px;
   font-size: 1.3em;
-  text-shadow: 0 0 15px white;
+  text-shadow: 0 0 10px white;
 }
 
+/* Profile card */
 .profile-card {
-  background: rgba(0,0,0,0.6);
+  background: rgba(0,0,0,0.55);
   border-radius: 20px;
   padding: 15px 30px;
   display: flex;
   align-items: center;
   gap: 15px;
-  box-shadow: 0 0 20px rgba(255,255,255,0.3);
+  box-shadow: 0 0 20px rgba(255,255,255,0.25);
   transition: 0.4s;
 }
 
 .profile-card:hover {
   box-shadow: 0 0 35px rgba(255,255,255,0.7);
-  transform: translateY(-5px);
+  transform: translateY(-6px);
 }
 
 .pfp {
@@ -73,8 +76,8 @@ body, html {
 }
 
 .info h2 {
-  font-size: 1.6em;
-  margin-bottom: 5px;
+  font-size: 1.5em;
+  margin-bottom: 4px;
   display: flex;
   align-items: center;
   gap: 5px;
@@ -95,10 +98,11 @@ body, html {
   text-shadow: 0 0 10px white;
 }
 
+/* Links */
 .links {
   display: flex;
   gap: 50px;
-  margin-top: 30px;
+  margin-top: 35px;
 }
 
 .links img {
@@ -112,12 +116,13 @@ body, html {
   filter: drop-shadow(0 0 30px white);
 }
 
+/* Music player */
 .music {
   position: absolute;
-  bottom: 30px;
+  bottom: 25px;
   display: flex;
   align-items: center;
-  gap: 15px;
+  gap: 10px;
 }
 
 .music-icon {
@@ -131,22 +136,22 @@ audio {
   filter: drop-shadow(0 0 10px white);
 }
 
+/* Glow cursor */
+#cursor-glow {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(255,255,255,0.25), transparent 70%);
+  pointer-events: none;
+  z-index: 1;
+  mix-blend-mode: screen;
+  transition: transform 0.1s linear;
+}
+
 /* Animations */
-@keyframes fadeIn {
-  from { opacity: 0; }
-  to { opacity: 1; }
-}
-
-.fade-in {
-  opacity: 0;
-  animation: fadeInUp 1.5s forwards;
-}
-
-@keyframes fadeInUp {
-  from { opacity: 0; transform: translateY(30px); }
-  to { opacity: 1; transform: translateY(0); }
-}
-
 @keyframes pulse {
   from { text-shadow: 0 0 10px #fff; }
   to { text-shadow: 0 0 40px #fff; }
@@ -155,4 +160,51 @@ audio {
 @keyframes pulseGlow {
   from { text-shadow: 0 0 10px #fff; }
   to { text-shadow: 0 0 25px #fff; }
+}
+
+.floating {
+  animation: float 4s ease-in-out infinite;
+}
+
+@keyframes float {
+  0%, 100% { transform: translateY(0px); }
+  50% { transform: translateY(-8px); }
+}
+
+/* Fade-in entrance */
+.fade-in {
+  opacity: 0;
+  transform: translateY(20px);
+  animation: fadeInUp 1.5s forwards;
+}
+
+@keyframes fadeInUp {
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* Responsive for phones */
+@media (max-width: 700px) {
+  .title {
+    font-size: 2em;
+  }
+
+  .pfp {
+    width: 60px;
+    height: 60px;
+  }
+
+  .profile-card {
+    flex-direction: column;
+    text-align: center;
+    gap: 10px;
+  }
+
+  .links {
+    gap: 25px;
+    margin-top: 25px;
+  }
+
+  audio {
+    width: 150px;
+  }
 }
