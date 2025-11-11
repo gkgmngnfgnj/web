@@ -1,4 +1,7 @@
-// Optional animations, glow, etc.
-document.addEventListener('DOMContentLoaded', () => {
-  console.log("Profile loaded for /3hel");
+// Simple entrance animation delays
+document.addEventListener("DOMContentLoaded", () => {
+  const elements = document.querySelectorAll(".fade-in");
+  elements.forEach((el, i) => {
+    setTimeout(() => el.classList.add("visible"), i * 200);
+  });
 });
