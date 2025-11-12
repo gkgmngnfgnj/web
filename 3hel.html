@@ -1,19 +1,33 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>/3hel Profile</title>
-  <link rel="stylesheet" href="css/3hel.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>/3hel</title>
+  <link rel="stylesheet" href="style.css">
+  <script defer src="script.js"></script>
 </head>
 <body>
-  <div class="glow" id="glow"></div>
+  <div class="background"></div>
 
-  <div class="pfp"></div>
-  <h1>/3hel</h1>
-  <p>Lead Developer at <strong>Nexin.fun</strong></p>
-  <a href="index.html">← Back</a>
+  <div class="cards-container">
+    <!-- Profile 1 -->
+    <div class="profile-card">
+      <img src="assets/pfp.png" alt="Profile Picture" class="pfp">
+      <div class="profile-info">
+        <h2>X9Z <span class="badge">👑</span> <span class="icon">🎯</span></h2>
+        <p class="status">PLAYING <span class="game">Dead By Daylight</span></p>
+      </div>
+    </div>
 
-  <script src="js/3hel.js"></script>
+    <!-- Profile 2 -->
+    <div class="profile-card">
+      <img src="assets/pfp.png" alt="Profile Picture" class="pfp">
+      <div class="profile-info">
+        <h2>3HEL <span class="badge">💀</span></h2>
+        <p class="status">LEAD DEV OF <span class="game">NEXIN.FUN</span></p>
+      </div>
+    </div>
+  </div>
 </body>
 </html>
